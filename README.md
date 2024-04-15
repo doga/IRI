@@ -13,7 +13,7 @@ deno run \
   --allow-net --allow-run --allow-env --allow-read \
   https://deno.land/x/mdrb@2.0.0/mod.ts \
   --dax=false --mode=isolated \
-  https://raw.githubusercontent.com/doga/IRI/main/README.md
+  https://raw.githubusercontent.com/doga/IRI/master/README.md
 ```
 
 <details data-mdrb>
