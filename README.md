@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.0.0/mod.mjs';
+import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.0/mod.mjs';
 
 demo();
 
@@ -87,7 +87,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.0.0/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.0/mod.mjs';
 
 demo();
 
