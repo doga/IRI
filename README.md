@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.1/mod.mjs';
+import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.2/mod.mjs';
 
 demo();
 
@@ -40,8 +40,25 @@ function demo() {
 
   for (const id of ids){
     try{
-      const parsedId = IRI.parse(id);
-      console.info(`${parsedId}`);
+      const
+      parsedId = IRI.parse(id),
+      ok = (
+        parsedId instanceof URL || 
+        ( // UniformResourceName?
+          typeof parsedId                   === 'object' &&
+          typeof parsedId.namespace         === 'string' &&
+          typeof parsedId.namespaceSpecific === 'string' &&
+          typeof parsedId.toString          === 'function' &&
+          typeof parsedId.toString()        === 'string' &&
+          parsedId.objectType               === 'UniformResourceName'
+        )
+      );
+      console.info(`object ${ typeof parsedId                   === 'object'}`);
+      console.info(`namespace ${typeof parsedId.namespace         === 'string'}`);
+      console.info(`namespaceSpecific ${typeof parsedId.namespaceSpecific === 'string'}`);
+      console.info(`query ${typeof parsedId.query             === 'string'}`);
+      console.info(`query ${typeof parsedId.query             === 'string'}`);
+      console.info(`${parsedId} ${ok}`);
       if (parsedId instanceof URL) {
         console.info(
 `  origin:   ${parsedId.origin}
@@ -87,7 +104,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.1/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.2/mod.mjs';
 
 demo();
 
