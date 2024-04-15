@@ -17,7 +17,7 @@ deno run \
 ```
 
 <details data-mdrb>
-<summary>Example: Parse URIs and uniform resource names.</summary>
+<summary>Example: Parse URLs and uniform resource names.</summary>
 
 <pre>
 description = '''
