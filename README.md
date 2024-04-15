@@ -1,10 +1,12 @@
-# Uniform Resource Name
+# Internationalized Resource Identifier
 
-A JavaScript ES6 module for representing a [Uniform Resource Name](https://en.wikipedia.org/wiki/Uniform_Resource_Name).
+A JavaScript ES6 module that provides an [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)  meta-parser.
+
+The parser returns a [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or a [Uniform Resource Name](https://en.wikipedia.org/wiki/Uniform_Resource_Name).
 
 ## Usage example
 
-_Tip: Run the example below by typing this in your terminal (requires Deno):_
+_Tip: Run the examples below by typing this in your terminal (requires Deno):_
 
 ```shell
 deno run \
