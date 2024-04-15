@@ -41,24 +41,8 @@ function demo() {
   for (const id of ids){
     try{
       const
-      parsedId = IRI.parse(id),
-      ok = (
-        parsedId instanceof URL || 
-        ( // UniformResourceName?
-          typeof parsedId                   === 'object' &&
-          typeof parsedId.namespace         === 'string' &&
-          typeof parsedId.namespaceSpecific === 'string' &&
-          typeof parsedId.toString          === 'function' &&
-          typeof parsedId.toString()        === 'string' &&
-          parsedId.objectType               === 'UniformResourceName'
-        )
-      );
-      console.info(`object ${ typeof parsedId                   === 'object'}`);
-      console.info(`namespace ${typeof parsedId.namespace         === 'string'}`);
-      console.info(`namespaceSpecific ${typeof parsedId.namespaceSpecific === 'string'}`);
-      console.info(`query ${typeof parsedId.query             === 'string'}`);
-      console.info(`query ${typeof parsedId.query             === 'string'}`);
-      console.info(`${parsedId} ${ok}`);
+      parsedId = IRI.parse(id);
+      console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
       if (parsedId instanceof URL) {
         console.info(
 `  origin:   ${parsedId.origin}
