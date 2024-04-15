@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.2/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
 
 demo();
 
@@ -42,11 +42,14 @@ function demo() {
     try{
       const
       parsedId = IRI.parse(id);
+
       console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
       if (parsedId instanceof URL) {
         console.info(
-`  origin:   ${parsedId.origin}
-  pathname: ${parsedId.pathname}\n`);
+`  is UniformResourceLocator: ${parsedId instanceof UniformResourceLocator}
+  origin:                    ${parsedId.origin}
+  pathname:                  ${parsedId.pathname}\n`);
+
       } else {
         console.info(
 `  namespace:         ${ parsedId.namespace}
@@ -78,6 +81,40 @@ urn:ietf:rfc:2648
 ```
 
 <details data-mdrb>
+<summary>Example: Workaround for URL i18n bug.</summary>
+
+<pre>
+description = '''
+Running this example is safe, it will not read or write anything to your filesystem.
+'''
+</pre>
+</details>
+
+```javascript
+import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
+
+demo();
+
+function demo() {
+  const
+  urlString = 'https://qworum.net/data/DoğaArmangil.ttl#id',
+  url       = new URL(urlString),
+  fixedUrl  = new UniformResourceLocator(urlString);
+
+  console.info(`Original string: ${urlString}`);
+  console.info(`\nURL:\n  toString() 👉 ${url}\n`);
+  console.info(`UniformResourceLocator:\n  toString() 👉 ${fixedUrl}\n`);
+  console.info(`UniformResourceLocator extends URL? 👉 ${fixedUrl instanceof URL}`);
+}
+```
+
+Sample output for the code above:
+
+```text
+
+```
+
+<details data-mdrb>
 <summary>Example: Parse uniform resource names belonging to some well-known namespaces.</summary>
 
 <pre>
@@ -88,7 +125,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.1.2/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
 
 demo();
 
