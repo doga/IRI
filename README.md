@@ -68,11 +68,12 @@ function demo() {
 Sample output for the code above:
 
 ```text
-https://qworum.net/data/Do%C4%9FaArmangil.ttl#id
-  origin:   https://qworum.net
-  pathname: /data/Do%C4%9FaArmangil.ttl
+https://qworum.net/data/DoğaArmangil.ttl#id (is IRI: true)
+  is UniformResourceLocator: true
+  origin:                    https://qworum.net
+  pathname:                  /data/Do%C4%9FaArmangil.ttl
 
-urn:ietf:rfc:2648
+urn:ietf:rfc:2648 (is IRI: true)
   namespace:         ietf
   namespaceSpecific: rfc:2648
   query:             undefined
@@ -111,7 +112,15 @@ function demo() {
 Sample output for the code above:
 
 ```text
+Original string: https://qworum.net/data/DoğaArmangil.ttl#id
 
+URL:
+  toString() 👉 https://qworum.net/data/Do%C4%9FaArmangil.ttl#id
+
+UniformResourceLocator:
+  toString() 👉 https://qworum.net/data/DoğaArmangil.ttl#id
+
+UniformResourceLocator extends URL? 👉 true
 ```
 
 <details data-mdrb>
