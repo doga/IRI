@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
 
 demo();
 
@@ -101,7 +101,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
+import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
 
 demo();
 
@@ -143,7 +143,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
 
 demo();
 
