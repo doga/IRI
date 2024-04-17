@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
 
 demo();
 
@@ -40,8 +40,7 @@ function demo() {
 
   for (const id of ids){
     try{
-      const
-      parsedId = IRI.parse(id);
+      const parsedId = IRI.parse(id);
 
       console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
       if (parsedId instanceof URL) {
@@ -75,12 +74,12 @@ Sample output for the code above:
 ```text
 https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
   is UniformResourceLocator: true
-  origin:                    https://çağlayan.info
-  hostname:                  çağlayan.info
-  host:                      çağlayan.info
-  pathname:                  /user/çağlayan/
-  hash:                      #çağlayan
-  search:                    ?çağlayan
+  origin:                    https://xn--alayan-vua36b.info
+  hostname:                  xn--alayan-vua36b.info
+  host:                      xn--alayan-vua36b.info
+  pathname:                  /user/%C3%A7a%C4%9Flayan/
+  hash:                      #%C3%A7a%C4%9Flayan
+  search:                    ?%C3%A7a%C4%9Flayan
 
 urn:ietf:rfc:2648 (is IRI: true)
   namespace:         ietf
@@ -101,7 +100,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
+import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
 
 demo();
 
@@ -143,7 +142,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.3.1/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
 
 demo();
 
