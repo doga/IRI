@@ -34,8 +34,7 @@ demo();
 function demo() {
   const
   ids = [
-    'https://DoğaArmangil.info/user/DoğaArmangil/#id',
-    'https://an.example:8080/?Doğa#Doğa',
+    'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
     'urn:ietf:rfc:2648',
   ];
 
@@ -74,10 +73,14 @@ function demo() {
 Sample output for the code above:
 
 ```text
-https://qworum.net/data/DoğaArmangil.ttl#id (is IRI: true)
+https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
   is UniformResourceLocator: true
-  origin:                    https://qworum.net
-  pathname:                  /data/Do%C4%9FaArmangil.ttl
+  origin:                    https://çağlayan.info
+  hostname:                  çağlayan.info
+  host:                      çağlayan.info
+  pathname:                  /user/çağlayan/
+  hash:                      #çağlayan
+  search:                    ?çağlayan
 
 urn:ietf:rfc:2648 (is IRI: true)
   namespace:         ietf
@@ -104,7 +107,7 @@ demo();
 
 function demo() {
   const
-  urlString = 'https://DoğaArmangil.info/user/DoğaArmangil/?Doğa#Doğa',
+  urlString = 'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
   url       = new URL(urlString),
   fixedUrl  = new UniformResourceLocator(urlString);
 
@@ -118,13 +121,13 @@ function demo() {
 Sample output for the code above:
 
 ```text
-Original string: https://qworum.net/data/DoğaArmangil.ttl#id
+Original string: https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
 
 URL:
-  toString() 👉 https://qworum.net/data/Do%C4%9FaArmangil.ttl#id
+  toString() 👉 https://xn--alayan-vua36b.info/user/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
 
 UniformResourceLocator:
-  toString() 👉 https://qworum.net/data/DoğaArmangil.ttl#id
+  toString() 👉 https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
 
 UniformResourceLocator extends URL? 👉 true
 ```
@@ -192,27 +195,6 @@ function demo() {
 Sample output for the code above:
 
 ```text
-urn:isbn:0451450523
-  namespace:         isbn
-  namespaceSpecific: 0451450523
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
-
-urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y
-  namespace:         isan
-  namespaceSpecific: 0000-0000-2CEA-0000-1-0000-0000-Y
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
-
-urn:ISSN:0167-6423
-  namespace:         ISSN
-  namespaceSpecific: 0167-6423
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
-
 urn:ietf:rfc:2648
   namespace:         ietf
   namespaceSpecific: rfc:2648
@@ -230,6 +212,13 @@ urn:mpeg:mpeg7:schema:2001
 urn:oid:2.16.840
   namespace:         oid
   namespaceSpecific: 2.16.840
+  query:             undefined
+  resolver:          undefined
+  fragment:          undefined
+
+urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
+  namespace:         uuid
+  namespaceSpecific: 6e8bc430-9c3a-11d9-9669-0800200c9a66
   query:             undefined
   resolver:          undefined
   fragment:          undefined
