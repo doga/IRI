@@ -4,7 +4,7 @@ A JavaScript ES6 module that provides an [IRI](https://en.wikipedia.org/wiki/Int
 
 The parser returns a [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or a [Uniform Resource Name](https://en.wikipedia.org/wiki/Uniform_Resource_Name).
 
-## Usage example
+## Usage examples
 
 _Tip: Run the examples below by typing this in your terminal (requires Deno):_
 
@@ -27,14 +27,15 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
 
 demo();
 
 function demo() {
   const
   ids = [
-    'https://qworum.net/data/DoğaArmangil.ttl#id',
+    'https://DoğaArmangil.info/user/DoğaArmangil/#id',
+    'https://an.example:8080/?Doğa#Doğa',
     'urn:ietf:rfc:2648',
   ];
 
@@ -48,7 +49,12 @@ function demo() {
         console.info(
 `  is UniformResourceLocator: ${parsedId instanceof UniformResourceLocator}
   origin:                    ${parsedId.origin}
-  pathname:                  ${parsedId.pathname}\n`);
+  hostname:                  ${parsedId.hostname}
+  host:                      ${parsedId.host}
+  pathname:                  ${parsedId.pathname}
+  hash:                      ${parsedId.hash}
+  search:                    ${parsedId.search}
+`);
 
       } else {
         console.info(
@@ -92,13 +98,13 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
+import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
 
 demo();
 
 function demo() {
   const
-  urlString = 'https://qworum.net/data/DoğaArmangil.ttl#id',
+  urlString = 'https://DoğaArmangil.info/user/DoğaArmangil/?Doğa#Doğa',
   url       = new URL(urlString),
   fixedUrl  = new UniformResourceLocator(urlString);
 
@@ -134,20 +140,20 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.2.0/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.3.0/mod.mjs';
 
 demo();
 
 function demo() {
   const
   ids = [
-    'urn:isbn:0451450523',
-    'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
-    'urn:ISSN:0167-6423',
+    // 'urn:isbn:0451450523',
+    // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
+    // 'urn:ISSN:0167-6423',
     'urn:ietf:rfc:2648',
     'urn:mpeg:mpeg7:schema:2001',
     'urn:oid:2.16.840',
-    // 'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
+    'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
     // 'urn:nbn:de:bvb:19-146642',
     // 'urn:lex:eu:council:directive:2010-03-09;2010-19-UE',
     // 'urn:lsid:zoobank.org:pub:CDC8D258-8F57-41DC-B560-247E17D3DC8C',
