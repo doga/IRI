@@ -27,44 +27,40 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
 
-demo();
+const
+ids = [
+  'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
+  'urn:ietf:rfc:2648',
+];
 
-function demo() {
-  const
-  ids = [
-    'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
-    'urn:ietf:rfc:2648',
-  ];
+for (const id of ids){
+  try{
+    const parsedId = IRI.parse(id);
 
-  for (const id of ids){
-    try{
-      const parsedId = IRI.parse(id);
-
-      console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
-      if (parsedId instanceof URL) {
-        console.info(
+    console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
+    if (parsedId instanceof URL) {
+      console.info(
 `  is UniformResourceLocator: ${parsedId instanceof UniformResourceLocator}
-  origin:                    ${parsedId.origin}
-  hostname:                  ${parsedId.hostname}
-  host:                      ${parsedId.host}
-  pathname:                  ${parsedId.pathname}
-  hash:                      ${parsedId.hash}
-  search:                    ${parsedId.search}
+origin:                    ${parsedId.origin}
+hostname:                  ${parsedId.hostname}
+host:                      ${parsedId.host}
+pathname:                  ${parsedId.pathname}
+hash:                      ${parsedId.hash}
+search:                    ${parsedId.search}
 `);
 
-      } else {
-        console.info(
+    } else {
+      console.info(
 `  namespace:         ${ parsedId.namespace}
-  namespaceSpecific: ${ parsedId.namespaceSpecific}
-  query:             ${ parsedId.query}
-  resolver:          ${ parsedId.resolver}
-  fragment:          ${ parsedId.fragment}\n`);
-      }
-    }catch(error){
-      console.error(error);
+namespaceSpecific: ${ parsedId.namespaceSpecific}
+query:             ${ parsedId.query}
+resolver:          ${ parsedId.resolver}
+fragment:          ${ parsedId.fragment}\n`);
     }
+  }catch(error){
+    console.error(error);
   }
 }
 ```
@@ -100,35 +96,32 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
 
-demo();
+const
+urlPath = '/çağlayan/?çağlayan#çağlayan',
+urlBase = 'https://çağlayan.info',
+url     = new URL(urlPath, urlBase),
+iri     = IRI.parse(urlPath, urlBase);
 
-function demo() {
-  const
-  urlString = 'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
-  url       = new URL(urlString),
-  fixedUrl  = new UniformResourceLocator(urlString);
-
-  console.info(`Original string: ${urlString}`);
-  console.info(`\nURL:\n  toString() 👉 ${url}\n`);
-  console.info(`UniformResourceLocator:\n  toString() 👉 ${fixedUrl}\n`);
-  console.info(`UniformResourceLocator extends URL? 👉 ${fixedUrl instanceof URL}`);
-}
+console.info(`Original string: ${urlBase}${urlPath}\n`);
+console.info(`URL:\n  toString() 👉 ${url}\n`);
+console.info(`IRI:\n  toString() 👉 ${iri}\n`);
+console.info(`IRI is a URL? 👉 ${iri instanceof URL}`);
 ```
 
 Sample output for the code above:
 
 ```text
-Original string: https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
+Original string: https://çağlayan.info/çağlayan/?çağlayan#çağlayan
 
 URL:
-  toString() 👉 https://xn--alayan-vua36b.info/user/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
+  toString() 👉 https://xn--alayan-vua36b.info/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
 
-UniformResourceLocator:
-  toString() 👉 https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
+IRI:
+  toString() 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
 
-UniformResourceLocator extends URL? 👉 true
+IRI is a URL? 👉 true
 ```
 
 <details data-mdrb>
@@ -142,51 +135,47 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.0/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
 
-demo();
+const
+ids = [
+  // 'urn:isbn:0451450523',
+  // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
+  // 'urn:ISSN:0167-6423',
+  'urn:ietf:rfc:2648',
+  'urn:mpeg:mpeg7:schema:2001',
+  'urn:oid:2.16.840',
+  'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
+  // 'urn:nbn:de:bvb:19-146642',
+  // 'urn:lex:eu:council:directive:2010-03-09;2010-19-UE',
+  // 'urn:lsid:zoobank.org:pub:CDC8D258-8F57-41DC-B560-247E17D3DC8C',
+  // 'urn:epc:class:lgtin:4012345.012345.998877',
+  // 'urn:epc:id:sgtin:0614141.112345.400',
+  // 'urn:epc:id:sscc:0614141.1234567890',
+  // 'urn:epc:id:sgln:0614141.12345.400',
+  // 'urn:epc:id:bic:CSQU3054383',
+  // 'urn:epc:id:imovn:9176187',
+  // 'urn:epc:id:gdti:0614141.12345.400',
+  // 'urn:mrn:iala:aton:us:1234.5',
+  // 'urn:mrn:iala:vts:ca:ecareg',
+  // 'urn:mrn:iala:wwy:us:atl:chba:potri',
+  // 'urn:mrn:iala:pub:g1143',
+  // 'urn:microsoft:adfs:claimsxray',
+  // 'urn:eic:10X1001A1001A450',
+];
 
-function demo() {
-  const
-  ids = [
-    // 'urn:isbn:0451450523',
-    // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
-    // 'urn:ISSN:0167-6423',
-    'urn:ietf:rfc:2648',
-    'urn:mpeg:mpeg7:schema:2001',
-    'urn:oid:2.16.840',
-    'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
-    // 'urn:nbn:de:bvb:19-146642',
-    // 'urn:lex:eu:council:directive:2010-03-09;2010-19-UE',
-    // 'urn:lsid:zoobank.org:pub:CDC8D258-8F57-41DC-B560-247E17D3DC8C',
-    // 'urn:epc:class:lgtin:4012345.012345.998877',
-    // 'urn:epc:id:sgtin:0614141.112345.400',
-    // 'urn:epc:id:sscc:0614141.1234567890',
-    // 'urn:epc:id:sgln:0614141.12345.400',
-    // 'urn:epc:id:bic:CSQU3054383',
-    // 'urn:epc:id:imovn:9176187',
-    // 'urn:epc:id:gdti:0614141.12345.400',
-    // 'urn:mrn:iala:aton:us:1234.5',
-    // 'urn:mrn:iala:vts:ca:ecareg',
-    // 'urn:mrn:iala:wwy:us:atl:chba:potri',
-    // 'urn:mrn:iala:pub:g1143',
-    // 'urn:microsoft:adfs:claimsxray',
-    // 'urn:eic:10X1001A1001A450',
-  ];
-
-  for (const id of ids){
-    try{
-      const parsedId = new UniformResourceName(id);
-      console.info(`${parsedId}
-  namespace:         ${ parsedId.namespace}
-  namespaceSpecific: ${ parsedId.namespaceSpecific}
-  query:             ${ parsedId.query}
-  resolver:          ${ parsedId.resolver}
-  fragment:          ${ parsedId.fragment}
+for (const id of ids){
+  try{
+    const parsedId = new UniformResourceName(id);
+    console.info(`${parsedId}
+namespace:         ${ parsedId.namespace}
+namespaceSpecific: ${ parsedId.namespaceSpecific}
+query:             ${ parsedId.query}
+resolver:          ${ parsedId.resolver}
+fragment:          ${ parsedId.fragment}
 `);
-    }catch(error){
-      console.error(error);
-    }
+  }catch(error){
+    console.error(error);
   }
 }
 ```
