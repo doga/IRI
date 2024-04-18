@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.2/mod.mjs';
 
 const
 ids = [
@@ -96,7 +96,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
+import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.2/mod.mjs';
 
 const
 urlPath = '/çağlayan/?çağlayan#çağlayan',
@@ -135,7 +135,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.1/mod.mjs';
+import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.2/mod.mjs';
 
 const
 ids = [
