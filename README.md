@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
 ids = [
@@ -38,26 +38,30 @@ ids = [
 for (const id of ids){
   try{
     const parsedId = IRI.parse(id);
-
     console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
+
     if (parsedId instanceof URL) {
-      console.info(
-`  is UniformResourceLocator: ${parsedId instanceof UniformResourceLocator}
-  origin:                    ${parsedId.origin}
-  hostname:                  ${parsedId.hostname}
-  host:                      ${parsedId.host}
-  pathname:                  ${parsedId.pathname}
-  hash:                      ${parsedId.hash}
-  search:                    ${parsedId.search}
-`);
+      console.info(`
+        is a URN 👉 ${parsedId instanceof UniformResourceName}
+        is a URL 👉 ${parsedId instanceof URL}
+        origin   👉 ${parsedId.origin}
+        hostname 👉 ${parsedId.hostname}
+        host     👉 ${parsedId.host}
+        pathname 👉 ${parsedId.pathname}
+        hash     👉 ${parsedId.hash}
+        search   👉 ${parsedId.search}
+      `);
 
     } else {
-      console.info(
-`  namespace:         ${ parsedId.namespace}
-  namespaceSpecific: ${ parsedId.namespaceSpecific}
-  query:             ${ parsedId.query}
-  resolver:          ${ parsedId.resolver}
-  fragment:          ${ parsedId.fragment}\n`);
+      console.info(`
+        is a URL          👉 ${parsedId instanceof URL}
+        is a URN          👉 ${parsedId instanceof UniformResourceName}
+        namespace         👉 ${parsedId.namespace}
+        namespaceSpecific 👉 ${parsedId.namespaceSpecific}
+        query             👉 ${parsedId.query}
+        resolver          👉 ${parsedId.resolver}
+        fragment          👉 ${parsedId.fragment}
+      `);
     }
   }catch(error){
     console.error(error);
@@ -69,20 +73,25 @@ Sample output for the code above:
 
 ```text
 https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
-  is UniformResourceLocator: true
-  origin:                    https://xn--alayan-vua36b.info
-  hostname:                  xn--alayan-vua36b.info
-  host:                      xn--alayan-vua36b.info
-  pathname:                  /user/%C3%A7a%C4%9Flayan/
-  hash:                      #%C3%A7a%C4%9Flayan
-  search:                    ?%C3%A7a%C4%9Flayan
+
+        is a URN 👉 false
+        is a URL 👉 true
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 #%C3%A7a%C4%9Flayan
+        search   👉 ?%C3%A7a%C4%9Flayan
 
 urn:ietf:rfc:2648 (is IRI: true)
-  namespace:         ietf
-  namespaceSpecific: rfc:2648
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
+
+        is a URL          👉 false
+        is a URN          👉 true
+        namespace         👉 ietf
+        namespaceSpecific 👉 rfc:2648
+        query             👉 undefined
+        resolver          👉 undefined
+        fragment          👉 undefined
 ```
 
 <details data-mdrb>
@@ -96,7 +105,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceLocator } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
 urlPath = '/çağlayan/?çağlayan#çağlayan',
@@ -104,35 +113,30 @@ urlBase = 'https://çağlayan.info',
 url     = new URL(urlPath, urlBase),
 iri     = IRI.parse(urlPath, urlBase);
 
-console.info(
-`Original string: ${urlBase}${urlPath}
+console.info(`Original string 👉 ${urlBase}${urlPath}
 
-URL:
-  toString() 👉 ${url}
+  URL to string 👉 ${url}
 
-IRI:
-  toString() 👉 ${iri}
+  IRI to string 👉 ${iri}
 
-IRI is a URL? 👉 ${iri instanceof URL}
+  IRI is a URL? 👉 ${iri instanceof URL}
 `);
 ```
 
 Sample output for the code above:
 
 ```text
-Original string: https://çağlayan.info/çağlayan/?çağlayan#çağlayan
+Original string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
 
-URL:
-  toString() 👉 https://xn--alayan-vua36b.info/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
+  URL to string 👉 https://xn--alayan-vua36b.info/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
 
-IRI:
-  toString() 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
+  IRI to string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
 
-IRI is a URL? 👉 true
+  IRI is a URL? 👉 true
 ```
 
 <details data-mdrb>
-<summary>Example: Parse uniform resource names belonging to some well-known namespaces.</summary>
+<summary>Example: Parse uniform resource names belonging to some well-known and less well-known namespaces.</summary>
 
 <pre>
 description = '''
@@ -142,16 +146,16 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
 ids = [
-  // 'urn:isbn:0451450523',
+  'urn:isbn:0451450523',
   // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
   // 'urn:ISSN:0167-6423',
-  'urn:ietf:rfc:2648',
+  // 'urn:ietf:rfc:2648',
   'urn:mpeg:mpeg7:schema:2001',
-  'urn:oid:2.16.840',
+  // 'urn:oid:2.16.840',
   'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
   // 'urn:nbn:de:bvb:19-146642',
   // 'urn:lex:eu:council:directive:2010-03-09;2010-19-UE',
@@ -169,20 +173,19 @@ ids = [
   // 'urn:mrn:iala:pub:g1143',
   // 'urn:microsoft:adfs:claimsxray',
   // 'urn:eic:10X1001A1001A450',
-  // 'urn:rts:video:14795747', // https://www.rts.ch/play/tv/emissions
+  'urn:rts:video:14795747', // https://www.rts.ch/play/tv/emissions
 ];
 
 for (const id of ids){
   try{
-    const parsedId = new UniformResourceName(id);
-    console.info(
-`${parsedId}
-  namespace:         ${ parsedId.namespace}
-  namespaceSpecific: ${ parsedId.namespaceSpecific}
-  query:             ${ parsedId.query}
-  resolver:          ${ parsedId.resolver}
-  fragment:          ${ parsedId.fragment}
-`);
+    const parsedId = IRI.parse(id);
+    console.info(`${parsedId}
+      namespace         👉 ${ parsedId.namespace}
+      namespaceSpecific 👉 ${ parsedId.namespaceSpecific}
+      query             👉 ${ parsedId.query}
+      resolver          👉 ${ parsedId.resolver}
+      fragment          👉 ${ parsedId.fragment}
+    `);
   }catch(error){
     console.error(error);
   }
@@ -192,33 +195,33 @@ for (const id of ids){
 Sample output for the code above:
 
 ```text
-urn:ietf:rfc:2648
-  namespace:         ietf
-  namespaceSpecific: rfc:2648
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
+urn:isbn:0451450523
+      namespace         👉 isbn
+      namespaceSpecific 👉 0451450523
+      query             👉 undefined
+      resolver          👉 undefined
+      fragment          👉 undefined
 
 urn:mpeg:mpeg7:schema:2001
-  namespace:         mpeg
-  namespaceSpecific: mpeg7:schema:2001
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
-
-urn:oid:2.16.840
-  namespace:         oid
-  namespaceSpecific: 2.16.840
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
+      namespace         👉 mpeg
+      namespaceSpecific 👉 mpeg7:schema:2001
+      query             👉 undefined
+      resolver          👉 undefined
+      fragment          👉 undefined
 
 urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
-  namespace:         uuid
-  namespaceSpecific: 6e8bc430-9c3a-11d9-9669-0800200c9a66
-  query:             undefined
-  resolver:          undefined
-  fragment:          undefined
+      namespace         👉 uuid
+      namespaceSpecific 👉 6e8bc430-9c3a-11d9-9669-0800200c9a66
+      query             👉 undefined
+      resolver          👉 undefined
+      fragment          👉 undefined
+
+urn:rts:video:14795747
+      namespace         👉 rts
+      namespaceSpecific 👉 video:14795747
+      query             👉 undefined
+      resolver          👉 undefined
+      fragment          👉 undefined
 ```
 
 ∎
