@@ -30,37 +30,37 @@ Running this example is safe, it will not read or write anything to your filesys
 import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
-ids = [
+iriStrings = [
   'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
   'urn:ietf:rfc:2648',
 ];
 
-for (const id of ids){
+for (const iriString of iriStrings){
   try{
-    const parsedId = IRI.parse(id);
-    console.info(`${parsedId} (is IRI: ${IRI.isIRI(parsedId)})`);
+    const iri = IRI.parse(iriString);
+    console.info(`${iri} (is IRI: ${IRI.isIRI(iri)})`);
 
-    if (parsedId instanceof URL) {
+    if (iri instanceof URL) {
       console.info(`
-        is a URN 👉 ${parsedId instanceof UniformResourceName}
-        is a URL 👉 ${parsedId instanceof URL}
-        origin   👉 ${parsedId.origin}
-        hostname 👉 ${parsedId.hostname}
-        host     👉 ${parsedId.host}
-        pathname 👉 ${parsedId.pathname}
-        hash     👉 ${parsedId.hash}
-        search   👉 ${parsedId.search}
+        is a URN 👉 ${iri instanceof UniformResourceName}
+        is a URL 👉 ${iri instanceof URL}
+        origin   👉 ${iri.origin}
+        hostname 👉 ${iri.hostname}
+        host     👉 ${iri.host}
+        pathname 👉 ${iri.pathname}
+        hash     👉 ${iri.hash}
+        search   👉 ${iri.search}
       `);
 
     } else {
       console.info(`
-        is a URL          👉 ${parsedId instanceof URL}
-        is a URN          👉 ${parsedId instanceof UniformResourceName}
-        namespace         👉 ${parsedId.namespace}
-        namespaceSpecific 👉 ${parsedId.namespaceSpecific}
-        query             👉 ${parsedId.query}
-        resolver          👉 ${parsedId.resolver}
-        fragment          👉 ${parsedId.fragment}
+        is a URL          👉 ${iri instanceof URL}
+        is a URN          👉 ${iri instanceof UniformResourceName}
+        namespace         👉 ${iri.namespace}
+        namespaceSpecific 👉 ${iri.namespaceSpecific}
+        query             👉 ${iri.query}
+        resolver          👉 ${iri.resolver}
+        fragment          👉 ${iri.fragment}
       `);
     }
   }catch(error){
@@ -108,12 +108,12 @@ Running this example is safe, it will not read or write anything to your filesys
 import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
-urlPath = '/çağlayan/?çağlayan#çağlayan',
-urlBase = 'https://çağlayan.info',
-url     = new URL(urlPath, urlBase),
-iri     = IRI.parse(urlPath, urlBase);
+path = '/çağlayan/?çağlayan#çağlayan',
+base = 'https://çağlayan.info',
+url  = new URL(path, base),
+iri  = IRI.parse(path, base);
 
-console.info(`Original string 👉 ${urlBase}${urlPath}
+console.info(`Original URL string 👉 ${base}${path}
 
   URL to string 👉 ${url}
 
@@ -126,7 +126,7 @@ console.info(`Original string 👉 ${urlBase}${urlPath}
 Sample output for the code above:
 
 ```text
-Original string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
+Original URL string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
 
   URL to string 👉 https://xn--alayan-vua36b.info/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
 
@@ -149,7 +149,7 @@ Running this example is safe, it will not read or write anything to your filesys
 import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
-ids = [
+iriStrings = [
   'urn:isbn:0451450523',
   // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
   // 'urn:ISSN:0167-6423',
@@ -176,15 +176,15 @@ ids = [
   'urn:rts:video:14795747', // https://www.rts.ch/play/tv/emissions
 ];
 
-for (const id of ids){
+for (const iriString of iriStrings){
   try{
-    const parsedId = IRI.parse(id);
-    console.info(`${parsedId}
-      namespace         👉 ${ parsedId.namespace}
-      namespaceSpecific 👉 ${ parsedId.namespaceSpecific}
-      query             👉 ${ parsedId.query}
-      resolver          👉 ${ parsedId.resolver}
-      fragment          👉 ${ parsedId.fragment}
+    const iri = IRI.parse(iriString);
+    console.info(`${iri}
+      namespace         👉 ${ iri.namespace}
+      namespaceSpecific 👉 ${ iri.namespaceSpecific}
+      query             👉 ${ iri.query}
+      resolver          👉 ${ iri.resolver}
+      fragment          👉 ${ iri.fragment}
     `);
   }catch(error){
     console.error(error);
