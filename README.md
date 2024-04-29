@@ -43,21 +43,21 @@ for (const id of ids){
     if (parsedId instanceof URL) {
       console.info(
 `  is UniformResourceLocator: ${parsedId instanceof UniformResourceLocator}
-origin:                    ${parsedId.origin}
-hostname:                  ${parsedId.hostname}
-host:                      ${parsedId.host}
-pathname:                  ${parsedId.pathname}
-hash:                      ${parsedId.hash}
-search:                    ${parsedId.search}
+  origin:                    ${parsedId.origin}
+  hostname:                  ${parsedId.hostname}
+  host:                      ${parsedId.host}
+  pathname:                  ${parsedId.pathname}
+  hash:                      ${parsedId.hash}
+  search:                    ${parsedId.search}
 `);
 
     } else {
       console.info(
 `  namespace:         ${ parsedId.namespace}
-namespaceSpecific: ${ parsedId.namespaceSpecific}
-query:             ${ parsedId.query}
-resolver:          ${ parsedId.resolver}
-fragment:          ${ parsedId.fragment}\n`);
+  namespaceSpecific: ${ parsedId.namespaceSpecific}
+  query:             ${ parsedId.query}
+  resolver:          ${ parsedId.resolver}
+  fragment:          ${ parsedId.fragment}\n`);
     }
   }catch(error){
     console.error(error);
@@ -104,10 +104,17 @@ urlBase = 'https://çağlayan.info',
 url     = new URL(urlPath, urlBase),
 iri     = IRI.parse(urlPath, urlBase);
 
-console.info(`Original string: ${urlBase}${urlPath}\n`);
-console.info(`URL:\n  toString() 👉 ${url}\n`);
-console.info(`IRI:\n  toString() 👉 ${iri}\n`);
-console.info(`IRI is a URL? 👉 ${iri instanceof URL}`);
+console.info(
+`Original string: ${urlBase}${urlPath}
+
+URL:
+  toString() 👉 ${url}
+
+IRI:
+  toString() 👉 ${iri}
+
+IRI is a URL? 👉 ${iri instanceof URL}
+`);
 ```
 
 Sample output for the code above:
@@ -168,12 +175,13 @@ ids = [
 for (const id of ids){
   try{
     const parsedId = new UniformResourceName(id);
-    console.info(`${parsedId}
-namespace:         ${ parsedId.namespace}
-namespaceSpecific: ${ parsedId.namespaceSpecific}
-query:             ${ parsedId.query}
-resolver:          ${ parsedId.resolver}
-fragment:          ${ parsedId.fragment}
+    console.info(
+`${parsedId}
+  namespace:         ${ parsedId.namespace}
+  namespaceSpecific: ${ parsedId.namespaceSpecific}
+  query:             ${ parsedId.query}
+  resolver:          ${ parsedId.resolver}
+  fragment:          ${ parsedId.fragment}
 `);
   }catch(error){
     console.error(error);
