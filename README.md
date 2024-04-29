@@ -180,11 +180,11 @@ for (const iriString of iriStrings){
   try{
     const iri = IRI.parse(iriString);
     console.info(`${iri}
-      namespace         👉 ${ iri.namespace}
-      namespaceSpecific 👉 ${ iri.namespaceSpecific}
-      query             👉 ${ iri.query}
-      resolver          👉 ${ iri.resolver}
-      fragment          👉 ${ iri.fragment}
+      namespace         👉 ${iri.namespace}
+      namespaceSpecific 👉 ${iri.namespaceSpecific}
+      query             👉 ${iri.query}
+      resolver          👉 ${iri.resolver}
+      fragment          👉 ${iri.fragment}
     `);
   }catch(error){
     console.error(error);
