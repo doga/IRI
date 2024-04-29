@@ -162,6 +162,7 @@ ids = [
   // 'urn:mrn:iala:pub:g1143',
   // 'urn:microsoft:adfs:claimsxray',
   // 'urn:eic:10X1001A1001A450',
+  // 'urn:rts:video:14795747', // https://www.rts.ch/play/tv/emissions
 ];
 
 for (const id of ids){
