@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.5/mod.mjs';
 
 const
 iriStrings = [
@@ -78,7 +78,7 @@ https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
         hash     👉 #%C3%A7a%C4%9Flayan
         search   👉 ?%C3%A7a%C4%9Flayan
 
-urn:example:path?=query?+resolver#fragment (is IRI: true)
+urn:example:path?+resolver?=query#fragment (is IRI: true)
 
         namespace         👉 example
         namespaceSpecific 👉 path
@@ -100,7 +100,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.5/mod.mjs';
 
 const
 path = '/çağlayan/?çağlayan#çağlayan',
@@ -135,7 +135,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.5/mod.mjs';
 
 const
 iriStrings = [
