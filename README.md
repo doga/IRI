@@ -27,7 +27,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI, UniformResourceName } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
 
 const
 iriStrings = [
@@ -55,7 +55,7 @@ for (const iriString of iriStrings){
     } else {
       console.info(`
         is a URL          👉 ${iri instanceof URL}
-        is a URN          👉 ${iri instanceof UniformResourceName}
+        is a URN          👉 ${!(iri instanceof URL)}
         namespace         👉 ${iri.namespace}
         namespaceSpecific 👉 ${iri.namespaceSpecific}
         query             👉 ${iri.query}
@@ -114,11 +114,8 @@ url  = new URL(path, base),
 iri  = IRI.parse(path, base);
 
 console.info(`Original URL string 👉 ${base}${path}
-
   URL to string 👉 ${url}
-
   IRI to string 👉 ${iri}
-
   IRI is a URL? 👉 ${iri instanceof URL}
 `);
 ```
@@ -127,11 +124,8 @@ Sample output for the code above:
 
 ```text
 Original URL string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
-
   URL to string 👉 https://xn--alayan-vua36b.info/%C3%A7a%C4%9Flayan/?%C3%A7a%C4%9Flayan#%C3%A7a%C4%9Flayan
-
   IRI to string 👉 https://çağlayan.info/çağlayan/?çağlayan#çağlayan
-
   IRI is a URL? 👉 true
 ```
 
