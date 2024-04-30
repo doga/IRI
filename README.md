@@ -42,7 +42,7 @@ for (const iriString of iriStrings){
 
     if (iri instanceof URL) {
       console.info(`
-        is a URN 👉 ${iri instanceof UniformResourceName}
+        is a URN 👉 ${!(iri instanceof URL)}
         is a URL 👉 ${iri instanceof URL}
         origin   👉 ${iri.origin}
         hostname 👉 ${iri.hostname}
