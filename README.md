@@ -27,12 +27,13 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
 
 const
 iriStrings = [
   'https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan',
-  'urn:ietf:rfc:2648',
+  'urn:example:path?+resolver?=query#fragment',
+  'url',
 ];
 
 for (const iriString of iriStrings){
@@ -42,8 +43,6 @@ for (const iriString of iriStrings){
 
     if (iri instanceof URL) {
       console.info(`
-        is a URN 👉 ${!(iri instanceof URL)}
-        is a URL 👉 ${iri instanceof URL}
         origin   👉 ${iri.origin}
         hostname 👉 ${iri.hostname}
         host     👉 ${iri.host}
@@ -52,10 +51,8 @@ for (const iriString of iriStrings){
         search   👉 ${iri.search}
       `);
 
-    } else {
+    } else { // URN
       console.info(`
-        is a URL          👉 ${iri instanceof URL}
-        is a URN          👉 ${!(iri instanceof URL)}
         namespace         👉 ${iri.namespace}
         namespaceSpecific 👉 ${iri.namespaceSpecific}
         query             👉 ${iri.query}
@@ -64,7 +61,7 @@ for (const iriString of iriStrings){
       `);
     }
   }catch(error){
-    console.error(error);
+    console.error(`${error}`);
   }
 }
 ```
@@ -74,8 +71,6 @@ Sample output for the code above:
 ```text
 https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
 
-        is a URN 👉 false
-        is a URL 👉 true
         origin   👉 https://xn--alayan-vua36b.info
         hostname 👉 xn--alayan-vua36b.info
         host     👉 xn--alayan-vua36b.info
@@ -83,15 +78,15 @@ https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan (is IRI: true)
         hash     👉 #%C3%A7a%C4%9Flayan
         search   👉 ?%C3%A7a%C4%9Flayan
 
-urn:ietf:rfc:2648 (is IRI: true)
+urn:example:path?=query?+resolver#fragment (is IRI: true)
 
-        is a URL          👉 false
-        is a URN          👉 true
-        namespace         👉 ietf
-        namespaceSpecific 👉 rfc:2648
-        query             👉 undefined
-        resolver          👉 undefined
-        fragment          👉 undefined
+        namespace         👉 example
+        namespaceSpecific 👉 path
+        query             👉 ?=query
+        resolver          👉 ?+resolver
+        fragment          👉 #fragment
+
+TypeError: Invalid IRI: 'url'
 ```
 
 <details data-mdrb>
@@ -105,7 +100,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
 
 const
 path = '/çağlayan/?çağlayan#çağlayan',
@@ -140,15 +135,15 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.3/mod.mjs';
+import { IRI } from 'https://esm.sh/gh/doga/IRI@1.4.4/mod.mjs';
 
 const
 iriStrings = [
   'urn:isbn:0451450523',
   // 'urn:isan:0000-0000-2CEA-0000-1-0000-0000-Y',
   // 'urn:ISSN:0167-6423',
-  // 'urn:ietf:rfc:2648',
-  'urn:mpeg:mpeg7:schema:2001',
+  'urn:ietf:rfc:2648',
+  // 'urn:mpeg:mpeg7:schema:2001',
   // 'urn:oid:2.16.840',
   'urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66',
   // 'urn:nbn:de:bvb:19-146642',
@@ -176,9 +171,6 @@ for (const iriString of iriStrings){
     console.info(`${iri}
       namespace         👉 ${iri.namespace}
       namespaceSpecific 👉 ${iri.namespaceSpecific}
-      query             👉 ${iri.query}
-      resolver          👉 ${iri.resolver}
-      fragment          👉 ${iri.fragment}
     `);
   }catch(error){
     console.error(error);
@@ -192,30 +184,18 @@ Sample output for the code above:
 urn:isbn:0451450523
       namespace         👉 isbn
       namespaceSpecific 👉 0451450523
-      query             👉 undefined
-      resolver          👉 undefined
-      fragment          👉 undefined
 
-urn:mpeg:mpeg7:schema:2001
-      namespace         👉 mpeg
-      namespaceSpecific 👉 mpeg7:schema:2001
-      query             👉 undefined
-      resolver          👉 undefined
-      fragment          👉 undefined
+urn:ietf:rfc:2648
+      namespace         👉 ietf
+      namespaceSpecific 👉 rfc:2648
 
 urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
       namespace         👉 uuid
       namespaceSpecific 👉 6e8bc430-9c3a-11d9-9669-0800200c9a66
-      query             👉 undefined
-      resolver          👉 undefined
-      fragment          👉 undefined
 
 urn:rts:video:14795747
       namespace         👉 rts
       namespaceSpecific 👉 video:14795747
-      query             👉 undefined
-      resolver          👉 undefined
-      fragment          👉 undefined
 ```
 
 ∎
