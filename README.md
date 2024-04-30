@@ -55,8 +55,8 @@ for (const iriString of iriStrings){
       console.info(`
         namespace         👉 ${iri.namespace}
         namespaceSpecific 👉 ${iri.namespaceSpecific}
-        query             👉 ${iri.query}
         resolver          👉 ${iri.resolver}
+        query             👉 ${iri.query}
         fragment          👉 ${iri.fragment}
       `);
     }
@@ -82,8 +82,8 @@ urn:example:path?+resolver?=query#fragment (is IRI: true)
 
         namespace         👉 example
         namespaceSpecific 👉 path
-        query             👉 ?=query
         resolver          👉 ?+resolver
+        query             👉 ?=query
         fragment          👉 #fragment
 
 TypeError: Invalid IRI: 'url'
