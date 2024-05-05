@@ -163,6 +163,7 @@ iriStrings = [
   // 'urn:microsoft:adfs:claimsxray',
   // 'urn:eic:10X1001A1001A450',
   'urn:rts:video:14795747', // https://www.rts.ch/play/tv/emissions
+  'urn:li:share:7188778814934507520', // https://www.linkedin.com/feed/update/urn:li:share:7188778814934507520/
 ];
 
 for (const iriString of iriStrings){
@@ -196,6 +197,10 @@ urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
 urn:rts:video:14795747
       namespace         👉 rts
       namespaceSpecific 👉 video:14795747
+
+urn:li:share:7188778814934507520
+      namespace         👉 li
+      namespaceSpecific 👉 share:7188778814934507520
 ```
 
 ∎
