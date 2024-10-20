@@ -1,3 +1,3 @@
-export {UniformResourceLocator} from './lib/uniform-resource-locator.mjs';
-export {UniformResourceName} from './lib/uniform-resource-name.mjs';
-export {IRI} from './lib/iri.mjs';
+export {IRL} from './lib/irl.mjs';
+export {URN} from './lib/urn.mjs';
+export {IriParser, IRI} from './lib/iri-parser.mjs';
