@@ -43,7 +43,7 @@ _Tip: Run the examples below by typing this in your terminal (requires [Deno](ht
 deno run \
   --allow-net --allow-run --allow-env --allow-read \
   jsr:@andrewbrey/mdrb@3.0.4 \
-  --dax=false --mode=isolated \
+  --dax=false \
   https://raw.githubusercontent.com/doga/IRI/master/README.md
 ```
 
