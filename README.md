@@ -1,4 +1,4 @@
-# Internationalized Resource Identifier
+# Parser for Internationalized Resource Identifier
 
 A parser for [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier)s.
 
@@ -21,16 +21,10 @@ anIri = iri`http://${host}`; // an IRL instance
 
 This library provides other classes and tagged template parsers as well, as shown in the detailed usage example below.
 
-## Usage examples
-
-_Tip: Run the examples below by typing this in your terminal (requires [Deno](https://deno.com/) 2+):_
-
-```shell
-deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/master/README.md'
-```
+## Usage example
 
 <details data-mdrb>
-<summary>Parse IRIs using tagged templates.</summary>
+<summary>Parse IRIs.</summary>
 
 <pre>
 description = '''
@@ -40,7 +34,7 @@ Running this example is safe, it will not read or write anything to your filesys
 </details>
 
 ```javascript
-import { IriParser, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.0.0/mod.mjs';
+import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.1.0/mod.mjs';
 
 const
 iris = [
@@ -248,7 +242,17 @@ URN: urn:ietf:rfc:2648
         
 ```
 
+### Running the usage example
+
+Run the examples below by typing this in your terminal (requires [Deno](https://deno.com/) 2+):
+
+```shell
+deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/master/README.md'
+```
+
 ## Class diagram
+
+This diagram omits the tagged template parsers `iri`, `irl`, `url`, and `urn`, which are functions.
 
 ```mermaid
 ---
@@ -256,27 +260,42 @@ title: Class diagram
 ---
 
 classDiagram
-  URL: string host
-  URL: string pathname
-  URL: toString()
-  URL: ...
+  class URL {
+    +string host
+    +string pathname
+    ...
+  }
 
-  IRL: URL url
-  IRL: string host
-  IRL: string pathname
-  IRL: toString()
-  IRL: ...
-  IRL *-- URL : has property
   note for IRL "𝘜𝘯𝘪𝘤𝘰𝘥𝘦 𝘳𝘦𝘱𝘳𝘦𝘴𝘦𝘯𝘵𝘢𝘵𝘪𝘰𝘯 𝘰𝘧 𝘢 𝘜𝘙𝘓."
+  class IRL {
+    +URL url
+    +string host
+    +string pathname
+    ...
+  }
+  IRL *-- URL : has property
 
-  URN: string namespace
-  URN: string namespaceSpecific
-  URN: ...
-  URN: toString()
 
-  IriParser: parse()
+  class URN{
+    +string namespace
+    +string namespaceSpecific
+    ...
+  }
+
+  class IriParser {
+    +parse() IRI$
+  }
   IriParser ..> IRL : depends on
   IriParser ..> URN : depends on
+
+  class IRI {
+    +string str
+    +toString() string
+  }
+
+  IRI <|-- URN
+  IRI <|-- IRL
+  IRI <|-- URL
 ```
 
 ∎
