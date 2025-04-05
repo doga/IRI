@@ -28,13 +28,13 @@ This library provides other classes and tagged template parsers as well, as show
 
 <pre>
 description = '''
-Running this example is safe, it will not read or write anything to your filesystem.
+Shows how to use this library for parsing IRIs.
 '''
 </pre>
 </details>
 
 ```javascript
-import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.1.0/mod.mjs';
+import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.1.1/mod.mjs';
 
 const
 iris = [
