@@ -244,15 +244,13 @@ URN: urn:ietf:rfc:2648
 
 ### Running the usage example
 
-Run the examples below by typing this in your terminal (requires [Deno](https://deno.com/) 2+):
+Run the example above by typing this in your terminal (requires [Deno](https://deno.com/) 2+):
 
 ```shell
 deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/master/README.md'
 ```
 
 ## Class diagram
-
-This diagram omits the tagged template parsers `iri`, `irl`, `url`, and `urn`, which are functions.
 
 ```mermaid
 ---
@@ -294,9 +292,10 @@ classDiagram
     +equals(other) boolean
   }
 
-  IRI <|-- URN
-  IRI <|-- IRL
-  IRI <|-- URL
+  IRI <|-- URN : extends
+  IRI <|-- IRL : extends
 ```
+
+Besides these classes, this library also provides the tagged template parsers `iri`, `irl`, `url`, and `urn`.
 
 ∎
