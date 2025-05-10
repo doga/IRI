@@ -34,8 +34,7 @@ Shows how to use this library for parsing IRIs.
 </details>
 
 ```javascript
-import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from './mod.mjs';
-// import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.1.4/mod.mjs';
+import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://esm.sh/gh/doga/IRI@3.1.4/mod.mjs';
 
 const
 iris = [
