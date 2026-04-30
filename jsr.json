@@ -1,0 +1,5 @@
+{
+  "name": "@arma/IRI",
+  "version": "3.1.5",
+  "exports": "./mod.mjs"
+}
