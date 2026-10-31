@@ -5,7 +5,7 @@
  * @license Apache-2.0 <https://www.apache.org/licenses/LICENSE-2.0>
  * @example How to parse a URL or URN.
  * ```javascript
- * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://esm.sh/gh/doga/IRI@3.1.4/mod.mjs';
+ * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.7/mod.mjs';
  * const
  * host = 'çağlayan.info',
  * irl1 = iri`https://${host}/résumé`, // an IRL (Unicode-aware variant of URL) and IRI instance
