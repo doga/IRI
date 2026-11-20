@@ -4,6 +4,9 @@ export declare class IRI {
   toString(): string;
 }
 
+/**
+ * IRL
+ */
 export declare class IRL {
   constructor(url: unknown, base: URL | IRL | undefined);
   hash: string;

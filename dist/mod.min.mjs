@@ -4,9 +4,8 @@ var x=class t{#t;constructor(e){this.#t=e}equals(e){return e instanceof t?this.t
  * A parser/serialiser for IRIs (URLs, URNs). In contrast to standard URL parsers, this parser keeps URLs in their original Unicode form, which remains readable even for URLs with non-English characters.
  * @author Doğa Armangil <doga.armangil@gmail.com>
  * @license Apache-2.0 <https://www.apache.org/licenses/LICENSE-2.0>
- * @example How to parse a URL or URN.
+ * @example How to parse a URL or URN in JavaScript.
  * ```javascript
- * // JavaScript
  * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.11/dist/mod.mjs';
  * const
  * host = 'çağlayan.info',
@@ -24,9 +23,8 @@ var x=class t{#t;constructor(e){this.#t=e}equals(e){return e instanceof t?this.t
  * urn1.namespace;         // 'ietf'
  * urn1.namespaceSpecific; // 'rfc:3987'
  * ```
- * 
+ * @example How to parse a URL or URN in TypeScript.
  * ```typescript
- * // TypeScript
  * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.11/dist/mod.mjs';
  * const
  * host = 'çağlayan.info',
