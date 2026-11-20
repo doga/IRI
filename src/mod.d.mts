@@ -35,14 +35,27 @@ export declare class URN {
   toString(): string;
 }
 
+/** 
+ * Tagged template parser for IRIs.
+ * @example
+ * ```javascript
+ * const anIri = iri`https://url.example`;
+ * ```
+ * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ **/
 export declare function iri(strings: string[], ...values: unknown[]): IRI | null;
 export declare function irl(strings: string[], ...values: unknown[]): IRL | null;
 export declare function urn(strings: string[], ...values: unknown[]): URN | null;
 export declare function url(strings: string[], ...values: unknown[]): URL | null;
 
+/**
+ * An IRI parser.
+ * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ */
 export declare class IriParser {
-  /**
+  /** 
+   * Parses an IRI. All arguments will be stringified if they are not already strings.
    * @throws {TypeError}
-   */
+   **/
   static parse(iri: unknown, base: unknown): IRI;
 }
