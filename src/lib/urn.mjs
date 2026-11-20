@@ -34,7 +34,7 @@ class URN extends IRI {
 /** 
  * Tagged template parser for URNs.
  * @example
- * const aUrn = urn`urn:qworum:user:9f90bcb5-2ca4-48f3-b951-193eb9f02f6b`;
+ * const aUrn = urn`urn:ietf:rfc:2648`;
  * @returns {(URN|null)} 
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
  **/

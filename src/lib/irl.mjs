@@ -82,7 +82,10 @@ function irl(strings, ...values){
 /** 
  * Tagged template parser for URLs.
  * @example
- * const anUrl = url`https://xn--alayan-vua36b.info`;
+ * ```javascript
+ * const url1 = url`https://çağlayan.info`;
+ * url1.href; // "https://xn--alayan-vua36b.info"
+ * ```
  * @returns {(URL|null)}
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
  **/
