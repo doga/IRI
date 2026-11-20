@@ -1,3 +1,4 @@
+/* @ts-self-types="./mod.d.mts" */
 /**
  * A parser/serialiser for IRIs (URLs, URNs). In contrast to standard URL parsers, this parser keeps URLs in their original Unicode form, which remains readable even for URLs with non-English characters.
  * @author Doğa Armangil <doga.armangil@gmail.com>
@@ -5,7 +6,7 @@
  * @example How to parse a URL or URN.
  * ```javascript
  * // JavaScript
- * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.8/dist/mod.mjs';
+ * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.10/dist/mod.mjs';
  * const
  * host = 'çağlayan.info',
  * irl1 = iri`https://${host}/résumé`, // an IRL (Unicode-aware variant of URL) and IRI instance
@@ -25,7 +26,7 @@
  * 
  * ```typescript
  * // TypeScript
- * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.8/dist/mod.mjs';
+ * import { iri, irl, urn, url, IRI, IRL, URN} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.10/dist/mod.mjs';
  * const
  * host = 'çağlayan.info',
  * irl1: IRL = iri`https://${host}/résumé`,
