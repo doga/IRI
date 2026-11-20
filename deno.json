@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "build": "mkdir -p ./dist; rm -d ./dist/*; deno bundle --minify --output ./dist/mod.min.mjs ./src/mod.mjs; cp ./src/mod.d.mts ./src/jsr.json ./dist; mv ./dist/mod.min.mjs ./dist/mod.min.mjs.tmp; echo '/* @ts-self-types=\"./index.d.ts\" */' > ./dist/mod.min.mjs; cat ./dist/mod.min.mjs.tmp >> ./dist/mod.min.mjs; rm ./dist/mod.min.mjs.tmp",
+    "build": "mkdir -p ./dist; rm -d ./dist/*; deno bundle --minify --output ./dist/mod.min.mjs ./src/mod.mjs; cp ./src/mod.d.mts ./src/jsr.json ./dist; mv ./dist/mod.min.mjs ./dist/mod.min.mjs.tmp; echo '/* @ts-self-types=\"./mod.d.mts\" */' > ./dist/mod.min.mjs; cat ./dist/mod.min.mjs.tmp >> ./dist/mod.min.mjs; rm ./dist/mod.min.mjs.tmp",
     "publish": "cd ./dist; deno publish"
   }
 }
