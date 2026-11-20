@@ -44,7 +44,7 @@ Shows how to use this library for parsing IRIs.
 import { 
   IRI, iri, 
   IRL, irl, 
-  URN, urn 
+  URN, urn,
   url, 
 } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.15/dist/mod.min.mjs';
 
@@ -113,142 +113,95 @@ for (const iri1 of iris){
 Sample output for the code above:
 
 ```text
-step 1 of 1 // Parse IRIs using tagged templates.
-
 IRL: https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 #çağlayan
-          search   👉 ?çağlayan
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 #%C3%A7a%C4%9Flayan
-          search   👉 ?%C3%A7a%C4%9Flayan
-        
-IRL: https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 #çağlayan
-          search   👉 ?çağlayan
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 #%C3%A7a%C4%9Flayan
-          search   👉 ?%C3%A7a%C4%9Flayan
-        
+  
+      IRL:
+        origin   👉 https://çağlayan.info
+        hostname 👉 çağlayan.info
+        host     👉 çağlayan.info
+        pathname 👉 /user/çağlayan/
+        hash     👉 #çağlayan
+        search   👉 ?çağlayan
+  
+      URL:
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 #%C3%A7a%C4%9Flayan
+        search   👉 ?%C3%A7a%C4%9Flayan
+      
 IRL: https://çağlayan.info/user/çağlayan/
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 
-          search   👉 
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 
-          search   👉 
-        
+  
+      IRL:
+        origin   👉 https://çağlayan.info
+        hostname 👉 çağlayan.info
+        host     👉 çağlayan.info
+        pathname 👉 /user/çağlayan/
+        hash     👉 
+        search   👉 
+  
+      URL:
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 
+        search   👉 
+      
 IRL: https://çağlayan.info/user/çağlayan/
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 
-          search   👉 
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 
-          search   👉 
-        
+  
+      IRL:
+        origin   👉 https://çağlayan.info
+        hostname 👉 çağlayan.info
+        host     👉 çağlayan.info
+        pathname 👉 /user/çağlayan/
+        hash     👉 
+        search   👉 
+  
+      URL:
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 
+        search   👉 
+      
 IRL: https://çağlayan.info/user/çağlayan/
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 
-          search   👉 
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 
-          search   👉 
-        
+  
+      IRL:
+        origin   👉 https://çağlayan.info
+        hostname 👉 çağlayan.info
+        host     👉 çağlayan.info
+        pathname 👉 /user/çağlayan/
+        hash     👉 
+        search   👉 
+  
+      URL:
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 
+        search   👉 
+      
 URL: https://xn--alayan-vua36b.info/user/%C3%A7a%C4%9Flayan/
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 
-          search   👉 
-        
-IRL: https://çağlayan.info/user/çağlayan/
-    
-        IRL:
-          origin   👉 https://çağlayan.info
-          hostname 👉 çağlayan.info
-          host     👉 çağlayan.info
-          pathname 👉 /user/çağlayan/
-          hash     👉 
-          search   👉 
-    
-        URL:
-          origin   👉 https://xn--alayan-vua36b.info
-          hostname 👉 xn--alayan-vua36b.info
-          host     👉 xn--alayan-vua36b.info
-          pathname 👉 /user/%C3%A7a%C4%9Flayan/
-          hash     👉 
-          search   👉 
-        
+  
+      URL:
+        origin   👉 https://xn--alayan-vua36b.info
+        hostname 👉 xn--alayan-vua36b.info
+        host     👉 xn--alayan-vua36b.info
+        pathname 👉 /user/%C3%A7a%C4%9Flayan/
+        hash     👉 
+        search   👉 
+      
 URN: urn:ietf:rfc:2648
-    
-          namespace         👉 ietf
-          namespaceSpecific 👉 rfc:2648
-          resolver          👉 undefined
-          query             👉 undefined
-          fragment          👉 undefined
-        
-URN: urn:ietf:rfc:2648
-    
-          namespace         👉 ietf
-          namespaceSpecific 👉 rfc:2648
-          resolver          👉 undefined
-          query             👉 undefined
-          fragment          👉 undefined
-        
+  
+        namespace         👉 ietf
+        namespaceSpecific 👉 rfc:2648
+        resolver          👉 undefined
+        query             👉 undefined
+        fragment          👉 undefined
 ```
 
 ### Running the usage example
