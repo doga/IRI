@@ -1,0 +1,6 @@
+{
+  "name": "@arma/iri",
+  "version": "3.1.9",
+  "license": "Apache-2.0",
+  "exports": "./mod.mjs"
+}

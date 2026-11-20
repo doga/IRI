@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "build": "mkdir -p ./dist; rm -d ./dist/*; deno bundle --minify --output ./dist/mod.min.mjs ./src/mod.mjs; cp ./src/mod.d.mts ./src/jsr.json ./dist",
+    "publish": "cd ./dist; deno publish"
+  }
+}
