@@ -12,7 +12,7 @@ Parsing an `IRI` produces either an `IRL` or an `URN`. `IRL` is a non-standard r
 This library provides a tagged template parser named `iri`, which is generally all that is needed to parse an `IRI`:
 
 ```javascript
-import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.7/mod.mjs';
+import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.8/dist/mod.min.mjs';
 
 const
 host  = 'localhost',
@@ -34,7 +34,7 @@ Shows how to use this library for parsing IRIs.
 </details>
 
 ```javascript
-import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.7/mod.mjs';
+import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.8/dist/mod.min.mjs';
 
 const
 iris = [
@@ -264,7 +264,6 @@ classDiagram
     ...
   }
 
-  note for IRL "𝘜𝘯𝘪𝘤𝘰𝘥𝘦 𝘳𝘦𝘱𝘳𝘦𝘴𝘦𝘯𝘵𝘢𝘵𝘪𝘰𝘯 𝘰𝘧 𝘢 𝘜𝘙𝘓."
   class IRL {
     +URL url
     +string host
@@ -294,6 +293,10 @@ classDiagram
 
   IRI <|-- URN : extends
   IRI <|-- IRL : extends
+
+  note for IRL "Unicode representation of a URL."
+  note for URL "ASCII representation of a URL."
+
 ```
 
 Besides these classes, this library also provides the tagged template parsers `iri`, `irl`, `url`, and `urn`.
