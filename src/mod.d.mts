@@ -119,6 +119,7 @@ export declare class URN {
  * urn1:IRI = iri`urn:ietf:rfc:2648`;   // a URN
  * ```
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals | Template literals (Template strings)}
  */
 export declare function iri(strings: string[], ...values: unknown[]): IRI | null;
 
@@ -133,6 +134,7 @@ export declare function iri(strings: string[], ...values: unknown[]): IRI | null
  * const irl1: IRL = iri`https://url.example`;
  * ```
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals | Template literals (Template strings)}
  */
 export declare function irl(strings: string[], ...values: unknown[]): IRL | null;
 
@@ -144,9 +146,10 @@ export declare function irl(strings: string[], ...values: unknown[]): IRL | null
  * ```
  * @example TypeScript example
  * ```typescript
- * const urn1: IRL = urn`urn:ietf:rfc:2648`;
+ * const urn1: URN = urn`urn:ietf:rfc:2648`;
  * ```
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals | Template literals (Template strings)}
  */
 export declare function urn(strings: string[], ...values: unknown[]): URN | null;
 
@@ -164,6 +167,7 @@ export declare function urn(strings: string[], ...values: unknown[]): URN | null
  * ```
  * @returns {(URL|null)}
  * @see {@link https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier|Internationalized Resource Identifier}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals | Template literals (Template strings)}
  */
 export declare function url(strings: string[], ...values: unknown[]): URL | null;
 

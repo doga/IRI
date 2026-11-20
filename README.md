@@ -12,11 +12,18 @@ Parsing an `IRI` produces either an `IRL` or an `URN`. `IRL` is a non-standard r
 This library provides a tagged template parser named `iri`, which is generally all that is needed to parse an `IRI`:
 
 ```javascript
-import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.11/dist/mod.min.mjs';
+import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.15/dist/mod.min.mjs';
 
 const
 host  = 'localhost',
 anIri = iri`http://${host}`; // an IRL instance
+```
+
+[This library is also available on `jsr.io`](https://jsr.io/@arma/iri) for off-browser JavaScript/TypeScript runtimes such as [Deno](https://deno.com):
+
+```typescript
+import { iri, IRI } from "jsr:@arma/iri@3.1.15";
+const host  = 'localhost', anIri: IRI = iri`http://${host}`;
 ```
 
 This library provides other classes and tagged template parsers as well, as shown in the detailed usage example below.
@@ -34,12 +41,16 @@ Shows how to use this library for parsing IRIs.
 </details>
 
 ```javascript
-import { IriParser, IRI, IRL, URN, iri, irl, url, urn } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.11/dist/mod.min.mjs';
+import { 
+  IRI, iri, 
+  IRL, irl, 
+  URN, urn 
+  url, 
+} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.15/dist/mod.min.mjs';
 
 const
 iris = [
   iri`https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan`, // IRL
-  IriParser.parse('https://çağlayan.info/user/çağlayan/?çağlayan#çağlayan'), // IRL
   iri``, // null
 
   irl`https://çağlayan.info/user/çağlayan/`, // IRL
@@ -47,10 +58,8 @@ iris = [
   new IRL('https://çağlayan.info/user/çağlayan/'), // IRL
 
   url`https://xn--alayan-vua36b.info/user/%C3%A7a%C4%9Flayan/`, // URL
-  IriParser.parse('https://xn--alayan-vua36b.info/user/%C3%A7a%C4%9Flayan/'), // IRL
 
   urn`urn:ietf:rfc:2648`, // URN
-  IriParser.parse('urn:ietf:rfc:2648'), // URN
 ];
 
 for (const iri1 of iris){
@@ -247,7 +256,7 @@ URN: urn:ietf:rfc:2648
 Run the example above by typing this in your terminal (requires [Deno](https://deno.com/) 2+):
 
 ```shell
-deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/master/README.md'
+deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/refs/tags/3.1.15/README.md'
 ```
 
 ## Class diagram
@@ -279,11 +288,6 @@ classDiagram
     ...
   }
 
-  class IriParser {
-    +parse() IRI$
-  }
-  IriParser ..> IRL : depends on
-  IriParser ..> URN : depends on
 
   class IRI {
     +string str
