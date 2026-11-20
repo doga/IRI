@@ -12,7 +12,7 @@ Parsing an `IRI` produces either an `IRL` or an `URN`. `IRL` is a non-standard r
 This library provides a tagged template parser named `iri`, which is generally all that is needed to parse an `IRI`:
 
 ```javascript
-import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.15/dist/mod.min.mjs';
+import { iri } from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.16/dist/mod.min.mjs';
 
 const
 host  = 'localhost',
@@ -22,7 +22,7 @@ anIri = iri`http://${host}`; // an IRL instance
 [This library is also available on `jsr.io`](https://jsr.io/@arma/iri) for off-browser JavaScript/TypeScript runtimes such as [Deno](https://deno.com):
 
 ```typescript
-import { iri, IRI } from "jsr:@arma/iri@3.1.15";
+import { iri, IRI } from "jsr:@arma/iri@3.1.16";
 const host  = 'localhost', anIri: IRI = iri`http://${host}`;
 ```
 
@@ -46,7 +46,7 @@ import {
   IRL, irl, 
   URN, urn,
   url, 
-} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.15/dist/mod.min.mjs';
+} from 'https://cdn.jsdelivr.net/gh/doga/IRI@3.1.16/dist/mod.min.mjs';
 
 const
 iris = [
@@ -209,7 +209,7 @@ URN: urn:ietf:rfc:2648
 Run the example above by typing this in your terminal (requires [Deno](https://deno.com/) 2+):
 
 ```shell
-deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/refs/tags/3.1.15/README.md'
+deno run --allow-net --allow-run --allow-env --allow-read jsr:@andrewbrey/mdrb@3.0.4 --dax=false --mode=isolated 'https://raw.githubusercontent.com/doga/IRI/refs/tags/3.1.16/README.md'
 ```
 
 ## Class diagram
